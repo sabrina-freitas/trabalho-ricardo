@@ -40,7 +40,7 @@
 
 <div class="texto">
  <h1>pedra,papel e tesoura</h1>
-    <h2>--------regras-------</h2>
+    <h2>----------regras----------</h2>
     <p> 1- escolher entre: pedra,papel ou tesoura</p>
     <p> 2-escolher apenas um por vez</p>
     <p> 3-o jogo acontece entre usuario e pc</p>
@@ -67,8 +67,8 @@
 		
 	<script>
 			/*variaveis contadoras*/
-			var seuplacar = 0;
-			var placarpc  = 0;
+				var seuplacar = 0;
+				var placarpc  = 0;
 			/*função de escolha da iA*/
 			function pedrapapeltesoura(Escolha) {
 				escolhadopc = ["Pedra", "Papel", "Tesoura"][Math.floor(Math.random() * 3)];
@@ -79,19 +79,19 @@
 					document.getElementById("status").innerHTML =" Empate tente de novo !!";  
 				
 				}else 
-					/*se (pedra vence tesoura)--> (papel vence pedra )-->(tesoura vence papel) ==> (escolha do usuario e escolha da IA) diferente de -1)
+				/*se (pedra vence tesoura)--> (papel vence pedra )-->(tesoura vence papel) ==> (escolha do usuario e escolha da IA) diferente de -1)
 					   */
 					if (["PedraTesoura", "PapelPedra", "TesouraPapel"].indexOf(Escolha + escolhadopc) != -1) {
 						seuplacar++;
 						
-						document.getElementById("status").innerHTML = "Voce Venceu ";
+							document.getElementById("status").innerHTML = "Voce Venceu ";
 						
 						document.getElementById("seuplacar").innerHTML = "Seu Placar: " + seuplacar.toString();
 					
 					}else{
 						
-						placarpc++;
-						document.getElementById("status").innerHTML = "IA Venceu!";
+						placarpc++;	
+							document.getElementById("status").innerHTML = "IA Venceu!";
 						
 						document.getElementById("placarpc").innerHTML = "Placar IA: " + placarpc.toString();
 					}

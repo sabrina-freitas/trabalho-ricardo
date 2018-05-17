@@ -1,1 +1,104 @@
 <!DOCTYPE html>
+<html>
+
+<head>
+	
+	<title>Pedra Papel e Tesoura</title>
+	
+
+<style>
+
+    p{ 
+        text-align:center; ;
+        background-color: #f3e6ff; 
+    }
+     div{
+        text-align:center; ;
+
+    }
+    button{
+
+    text-align:center; ;
+    }
+    h1{
+    	font-size: 52px;
+    	background-color: #ccccff;
+
+    }
+    h2{
+    	font-size: 30px;
+    	background-color: #e6ccff;
+
+
+    }
+
+</style>
+</head>
+
+<body>
+
+
+<div class="texto">
+ <h1>pedra,papel e tesoura</h1>
+    <h2>--------regras-------</h2>
+    <p> 1- escolher entre: pedra,papel ou tesoura</p>
+    <p> 2-escolher apenas um por vez</p>
+    <p> 3-o jogo acontece entre usuario e pc</p>
+	
+	<p><h3><div id="pontos"><span id="seuplacar">Seu Placar:  0</span>
+	              </br></br><span id="placarpc">Placar PC:  0</span></div></h3></p>
+	
+	
+	</div>
+	
+    <p><b>Escolha: Pedra, Papel ou Tesoura<b></p>
+	<p>
+		<button onclick="pedrapapeltesoura('Pedra')">Pedra</button> .
+		<button onclick="pedrapapeltesoura('Papel')">Papel</button> .
+		<button onclick="pedrapapeltesoura('Tesoura')">Tesoura</button>
+		
+
+
+	</p>
+	
+	<p id="opcoes"></p>
+	
+	<p id="status"></p>
+		
+	<script>
+			/*variaveis contadoras*/
+			var seuplacar = 0;
+			var placarpc  = 0;
+			/*função de escolha da iA*/
+			function pedrapapeltesoura(Escolha) {
+				escolhadopc = ["Pedra", "Papel", "Tesoura"][Math.floor(Math.random() * 3)];
+				
+				document.getElementById("opcoes").innerHTML = "sua escolha: " + Escolha + "</br> escolha da IA: " + escolhadopc +"."
+				/*empate= os dois jogam a mesma coisa*/
+				if (Escolha == escolhadopc) {
+					document.getElementById("status").innerHTML =" Empate tente de novo !!";  
+				
+				}else 
+					/*se (pedra vence tesoura)--> (papel vence pedra )-->(tesoura vence papel) ==> (escolha do usuario e escolha da IA) diferente de -1)
+					   */
+					if (["PedraTesoura", "PapelPedra", "TesouraPapel"].indexOf(Escolha + escolhadopc) != -1) {
+						seuplacar++;
+						
+						document.getElementById("status").innerHTML = "Voce Venceu ";
+						
+						document.getElementById("seuplacar").innerHTML = "Seu Placar: " + seuplacar.toString();
+					
+					}else{
+						
+						placarpc++;
+						document.getElementById("status").innerHTML = "IA Venceu!";
+						
+						document.getElementById("placarpc").innerHTML = "Placar IA: " + placarpc.toString();
+					}
+				
+			}
+			
+		
+	</script>
+</body>	
+</html>

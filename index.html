@@ -1,101 +1,87 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	
-	<title>Pedra,Papel e Tesoura</title>
-	
-
-<style>
-    p{ 
-        text-align:center; ;
+	<title></title>
+	<style>
+		p{
+		text-align:center;
         background-color: #f3e6ff; 
-    }
-     div{
-        text-align:center; ;
-    }
-    button{
-    text-align:center; ;
-    }
-    h1{
-    	font-size: 52px;
-    	background-color: #ccccff;
-    }
-    h2{
-    	font-size: 30px;
-    	background-color: #e6ccff;
-    }
-</style>
+		}
+		h1,h2{
+		text-align:center;
+        background-color: #f3e6ff; 
+		}
+		form{
+		 text-align: center;
+		 background-color: #f3e6ff;
+		}
+		input{
+		text-align: center;
+		}
+	</style>
+
+	<script>
+		function jogo(){
+		var possibilidades = (Math.random()*3);
+			/*0= pedra
+			  1=papel
+			  2=tesoura*/
+			  /*possibilidades de jogo*/
+			  /*papel 
+			    tesoura
+			    e pedra*/
+		if (opcoes.jogadas.value == 1 ) {
+			if (possibilidades < 1 ) {
+				alert("voce ganhou!!\n\n escolheu papel e ganhou de pedra");
+			}else if (possibilidades > 1) {
+				alert("voce perdeu!!\n\n escolheu papel e perdeu para tesoura");
+			}else{
+				alert("empatou!!\n\n escolheu papel e empatou com papel");
+			}
+		if (opcoes.jogadas.value == 2 ) {
+				if (possibilidades < 2) {
+					alert("voce ganhou!!\n\n escolheu tesoura e ganhou de papel");
+				}else if (possibilidades < 1 ) {
+					alert("voce perdeu!!\n\n escolheu tesoura e perdeu para pedra");
+				}else{
+					alert("empatou!!\n\n escolheu tesoura e empatou com tesoura");
+
+				}
+		 if (opcoes.jogadas.value ==0) {
+					if (possibilidades > 1) {
+						alert("voce ganhou!!\n\n escolheu pedra e ganhou de tesoura");
+					}else if (possibilidades < 1){
+						alert("empatou!!\n\n escolheu tesoura e empatou com tesoura");
+
+					}else{
+						alert("voce perdeu!!\n\n escolheu pedra e perdeu para papel ");
+					}
+				}
+			}
+
+
+		}
+		}
+		/**/
+	</script>
+
 </head>
-
 <body>
-
-
-<div class="texto">
- <h1>pedra,papel e tesoura</h1>
+	<h1>pedra,papel e tesoura</h1>
     <h2>----------regras----------</h2>
     <p> 1- escolher entre: pedra,papel ou tesoura</p>
     <p> 2-escolher apenas um por vez</p>
     <p> 3-o jogo acontece entre usuario e pc</p>
-	
-	<p><h3><div id="pontos"><span id="seuplacar">Seu Placar:  0</span>
-	              </br></br><span id="placarpc">Placar PC:  0</span></div></h3></p>
-	
-	
-	</div>
-	
-    <p><b>Escolha entre: Pedra, Papel ou Tesoura<b></p>
 	<p>
-		<button onclick="pedrapapeltesoura('Pedra')">Pedra</button> .
-		<button onclick="pedrapapeltesoura('Papel')">Papel</button> .
-		<button onclick="pedrapapeltesoura('Tesoura')">Tesoura</button>
-		
-
-
-	</p>
-	
-	<p id="opcoes"></p>
-	
-	<p id="status"></p>
-		
-	<script>
-	/*variaveis contadoras*/
-		var seuplacar = 0;
-		var placarpc  = 0;
-	/*função de escolha da iA*/
-	function pedrapapeltesoura(Escolha) {
-
-		pcescolha = ["Pedra", "Papel", "Tesoura"][Math.floor(Math.random() * 3)];
-				
-			document.getElementById("opcoes").innerHTML = "sua escolha: " + Escolha + 
-								"</br> escolha da IA: " + pcescolha +"."
-
-	/*empate= os dois jogam a mesma coisa*/
-		if (Escolha == pcescolha) {
-			document.getElementById("status").innerHTML =" Empate tente de novo !!";  
-				
-		}else 
-			
-	/*se (pedra vence tesoura)--> (papel vence pedra )-->(tesoura vence papel) ==> (escolha do usuario e escolha da IA) diferente de -1)*/
-	
-	if (["PedraTesoura", "PapelPedra", "TesouraPapel"].innerHTML(Escolha + pcescolha) != -1) {
-			seuplacar++;
-						
-			document.getElementById("status").innerHTML = "Voce Venceu ";
-						
-			document.getElementById("seuplacar").innerHTML = "Seu Placar: " + seuplacar.innerHTML();
-					
-		}else{
-						
-			placarpc++;	
-			document.getElementById("status").innerHTML = "IA Venceu!";
-						
-			document.getElementById("placarpc").innerHTML = "Placar IA: " + placarpc.innerHTML();
-					}
-				
-			}
-			
-		
-	</script>
-</body>	
+		<form name="opcoes" onsubmit="jogo">
+		Escolha: <br><br>
+		0- pedra  
+		1- papel 
+		2- tesoura<br>
+		<input type="text" name="jogadas"/>
+		<input type="submit" value="jogar" />
+		</form></p>
+</body>
 </html>
+
+
